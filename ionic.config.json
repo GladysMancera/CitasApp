@@ -1,0 +1,7 @@
+{
+  "name": "Citasapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
