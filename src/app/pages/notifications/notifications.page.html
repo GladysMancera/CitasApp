@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Encabezado condensado para el efecto de desplazamiento -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Notificaciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Lista de notificaciones estáticas -->
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h2>Nuevo Mensaje</h2>
+        <p>Has recibido un nuevo mensaje.</p>
+      </ion-label>
+      <ion-note slot="end">hace 5 minutos</ion-note>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>
+        <h2>Actualización Disponible</h2>
+        <p>Una nueva actualización está lista para instalar.</p>
+      </ion-label>
+      <ion-note slot="end">hace 1 hora</ion-note>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>
+        <h2>Recordatorio</h2>
+        <p>Tu cita es mañana.</p>
+      </ion-label>
+      <ion-note slot="end">hace 2 días</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

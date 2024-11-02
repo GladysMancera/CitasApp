@@ -9,6 +9,7 @@ export class AppComponent {
     { title: 'Inicio', url: '/pages/home', icon: 'home' },
     { title: 'Perfil', url: '/pages/profile', icon: 'person' },
     { title: 'Citas', url: '/pages/appoiments', icon: 'calendar' },
+    { title: 'Notificaciones', url: '/pages/notifications', icon: 'notifications' },
   ];
   public labels = [];
   constructor() {}

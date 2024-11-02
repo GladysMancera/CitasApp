@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <!-- Botón de perfil con burbuja de notificaciones -->
+      <ion-button routerLink="/profile" color="green" class="profile-button">
+        <ion-icon name="person" class="profile-icon"></ion-icon>
+        <!-- Burbuja de notificaciones -->
+        <ion-badge color="danger" slot="end" class="notification-badge">3</ion-badge>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="welcome-section">
+    <h2>Bienvenido a tu App mas confiable!</h2>
+    <p>Es momento de que cuides tu salud.</p>
+    <!-- Imagen de bienvenida -->
+    <img src="assets/medicos.png" alt="Welcome Image" class="welcome-image" />
+  </div>
 </ion-content>
