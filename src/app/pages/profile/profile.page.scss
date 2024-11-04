@@ -1,0 +1,16 @@
+
+.custom-toolbar {
+    --background: #E8E9E0;  /* Cambia este color al que desees */
+    --color: #FFFFFF;       /* Cambia el color del texto si deseas */
+  }
+
+  .profile-avatar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    --size: 100px;
+  }
+
+  ion-card {
+    margin-bottom: 16px;
+  }
