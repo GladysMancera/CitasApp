@@ -1,13 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="header">
+    <ion-title class="title">Bienvenido</ion-title>
+    <p class="subTitle"> Registrate para tener una cuenta</p>
+  </div>
+  <form>
+  <div class="ion-padding">
+    <ion-item>
+    <ion-input placeholder="Nombre" class="input"></ion-input>
+    <ion-icon name="person-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Correo Electronico "class="input"></ion-input>
+      <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+    <ion-item>
+      <ion-input placeholder="Contraseña" class="input"></ion-input>
+    <ion-icon name="lock-closed-outline"></ion-icon>
+    </ion-item>
+   
+    <div class="signupLink">
+      <p>¿Ya tienes una cuenta? <a style="color: blue;" [routerLink]="['/login']"> Inicia Sesión </a></p>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" style="margin-bottom:30px" >
+  <ion-fab-button [routerLink]="['/home']">
+      <ion-icon name="chevron-forward"></ion-icon>
+
+     </ion-fab-button>
+    </ion-fab>
+  </form>
+  
 </ion-content>
+
