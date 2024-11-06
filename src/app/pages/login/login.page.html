@@ -1,32 +1,36 @@
-
 <ion-content [fullscreen]="true">
+   <ion-header translucent>
+    <ion-toolbar>
+      <ion-title class="title">Bienvenido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
   <div class="header">
-    <ion-title class="title">Bienvenido</ion-title>
-    <p class="subTitle"> Inicia sesión para acceder a tu cuenta</p>
+    <p class="subTitle">Inicia sesion para ingresar a tu cuenta</p>
   </div>
   <form>
-  <div class="ion-padding">
-    <ion-item>
-    <ion-input placeholder="Nombre de usuario" class="input"></ion-input>
-    <ion-icon name="person-outline"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Contraseña" class="input"></ion-input>
-    <ion-icon name="lock-closed-outline"></ion-icon>
-    </ion-item>
-    <div class="forgotpassword">
-      <a [routerLink]="['/resetPassword']"style="color: blue"> Recuperar Contraseña</a>
-    </div>
-    <div class="signupLink">
-      <p>¿Eres nuevo usuario? <a style="color: blue" [routerLink]="['/signup']">Registrate Gratis</a></p>
-    </div>
-  </div>
-  <ion-fab vertical="bottom" horizontal="end" style="margin-bottom:30px" >
-  <ion-fab-button [routerLink]="['/home']">
-      <ion-icon name="chevron-forward"></ion-icon>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input placeholder="Nombre de usuario" class="input"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Contraseña" class="input" type="password"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div class="forgotpassword">
+        <a [routerLink]="['/resetPassword']" style="color: blue">Recuperar Contraseña</a>
+      </div>
+      <div class="signupLink">
+        <p>¿Eres nuevo usuario? <a style="color: blue" [routerLink]="['/signup']">Registrate Gratis</a></p>
+      </div>
 
-     </ion-fab-button>
-    </ion-fab>
+      <!-- Botón de inicio de sesión -->
+      <div class="ion-padding-top">
+        <ion-button expand="block" color="primary" type="submit">
+          Iniciar sesión
+        </ion-button>
+      </div>
+    </div>
   </form>
-  
 </ion-content>

@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       const currentRoute = this.router.url;
 
       // Desactivar el menú si la ruta es login o signup
-      if (currentRoute.includes('login') || currentRoute.includes('signup')) {
+      if (currentRoute.includes('login') || currentRoute.includes('signup') || currentRoute.includes('landing')) {
         this.menu.enable(false);  // Desactivar el menú
       } else {
         this.menu.enable(true);  // Habilitar el menú en otras rutas

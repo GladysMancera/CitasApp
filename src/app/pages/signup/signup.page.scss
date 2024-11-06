@@ -1,57 +1,62 @@
-.input{
-    font-size: 300;
+.input {
+    font-size: 1rem; /* Ajuste del tamaño de fuente */
 }
 
-ion-item{
+ion-item {
     --background: #f1f1f1;
     border-radius: 10px;
     margin-bottom: 16px;
-    
 }
 
-.header{
-    margin-top: 100px;
-    margin-bottom: 80px;
+.header {
+    margin-top: 60px;
+    margin-bottom: 50px;
     text-align: center;
-    .subTitle{
-        color: gray;
-        font-size: 0.9rem;
-    }
-
-    title{
-        font-size: 2rem;
-    }
 }
 
-.signupLink{
+.header .subTitle {
+    color: gray;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.header .title {
+    font-size: 2rem;
+}
+
+.signupLink {
     display: flex;
-    margin: auto;
-    flex-direction: row;
-    align-content: center;
-    position: absolute;
     justify-content: center;
-    left: 0;
-    bottom: 0;
-    width: 80%;
-    right: 0;
-
-
-    p{
-        font-size: 0.9rem;
-    }
-
-    a{
-        text-decoration: none;
-    }
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
-.forgotPassword{
+.signupLink p {
+    font-size: 0.9rem;
+}
+
+.signupLink a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.forgotPassword {
     display: flex;
     justify-content: flex-end;
+    margin-top: 10px;
+}
 
-    a{
-        font-weight: 400;
-        font-size: 0.8rem;
-        text-decoration: none;
-    }
+.forgotPassword a {
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: blue;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
