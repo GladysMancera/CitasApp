@@ -1,13 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Encabezado Condensado para el Título Grande -->
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
+      <ion-title size="large">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Sección de Perfil -->
+  <ion-card class="profile-card">
+    <ion-avatar slot="start" class="profile-avatar">
+      <img src="assets/perfil.jpg" alt="Foto de Usuario" />
+    </ion-avatar>
+    <ion-card-header>
+      <ion-card-title>{{ user.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ user.descripcion }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Sección del Menú -->
+  <ion-list>
+    <ion-item button (click)="verCitas()">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-label>Ver Citas Médicas</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

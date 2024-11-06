@@ -1,13 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>appoiments</ion-title>
+    <ion-title>Citas Médicas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">appoiments</ion-title>
+      <ion-title size="large">Registro de Citas</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <!-- Ginecología -->
+    <ion-item>
+      <ion-label>Ginecólogo</ion-label>
+      <ion-button fill="outline" expand="full" (click)="openCalendar('ginecologo')">Registrar Cita</ion-button>
+    </ion-item>
+    
+    <!-- Pediatría -->
+    <ion-item>
+      <ion-label>Pediatra</ion-label>
+      <ion-button fill="outline" expand="full" (click)="openCalendar('pediatra')">Registrar Cita</ion-button>
+    </ion-item>
+
+    <!-- Médico General -->
+    <ion-item>
+      <ion-label>Médico General</ion-label>
+      <ion-button fill="outline" expand="full" (click)="openCalendar('medicoGeneral')">Registrar Cita</ion-button>
+    </ion-item>
+
+    <!-- Cardiología -->
+    <ion-item>
+      <ion-label>Cardiólogo</ion-label>
+      <ion-button fill="outline" expand="full" (click)="openCalendar('cardiologo')">Registrar Cita</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Modal del calendario para seleccionar fecha -->
+  <ion-modal [isOpen]="calendarModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Selecciona la fecha</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeCalendar()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-datetime [(ngModel)]="selectedDate" displayFormat="MMM DD, YYYY" (ionChange)="onDateChange($event)"></ion-datetime>
+        <ion-button expand="full" (click)="registerAppointment()">Confirmar Cita</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
