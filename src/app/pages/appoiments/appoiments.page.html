@@ -22,6 +22,12 @@
       </ion-select>
     </ion-item>
 
+    <!-- Selector de Fecha y Hora -->
+    <ion-item>
+      <ion-label>Fecha y Hora</ion-label>
+      <ion-datetime formControlName="appointmentDateTime" display-format="DD/MM/YYYY HH:mm" placeholder="Selecciona fecha y hora"></ion-datetime>
+    </ion-item>
+
     <!-- Botón de Enviar -->
     <ion-button expand="full" type="submit" [disabled]="!appointmentForm.valid">
       Agendar

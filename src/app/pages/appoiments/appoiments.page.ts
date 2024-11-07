@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; // Asegúrate de que OnInit está importado
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 
@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   templateUrl: './appoiments.page.html',
   styleUrls: ['./appoiments.page.scss'],
 })
-export class AppoimentsPage implements OnInit { // Implementa OnInit
+export class AppoimentsPage {
   appointmentForm: FormGroup;
   medicalAreas: string[] = [
     'Cardiología',
@@ -20,17 +20,14 @@ export class AppoimentsPage implements OnInit { // Implementa OnInit
   constructor(private fb: FormBuilder, private navCtrl: NavController) {
     this.appointmentForm = this.fb.group({
       name: ['', Validators.required],
-      medicalArea: ['', Validators.required]
+      medicalArea: ['', Validators.required],
+      appointmentDateTime: ['', Validators.required] // Campo para la fecha y hora
     });
   }
-
-  // Implementación del ciclo de vida OnInit
-  ngOnInit(): void {} // Asegúrate de que tenga el tipo :void
 
   onSubmit(): void {
     if (this.appointmentForm.valid) {
       console.log(this.appointmentForm.value);
-      // Aquí puedes redirigir o mostrar un mensaje de éxito
       this.navCtrl.back(); // Vuelve a la página anterior
     }
   }
