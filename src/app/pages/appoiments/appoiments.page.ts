@@ -1,42 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; // Asegúrate de que OnInit está importado
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-appoiments',
   templateUrl: './appoiments.page.html',
   styleUrls: ['./appoiments.page.scss'],
 })
-export class AppoimentsPage implements OnInit {
+export class AppoimentsPage implements OnInit { // Implementa OnInit
+  appointmentForm: FormGroup;
+  medicalAreas: string[] = [
+    'Cardiología',
+    'Dermatología',
+    'Neurología',
+    'Pediatría',
+    'Ginecología'
+  ];
 
-  // Variables para gestionar el calendario y las citas
-  calendarModalOpen = false;
-  selectedDate: string = '';
-  selectedSpecialty: string = '';
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private navCtrl: NavController) {
+    this.appointmentForm = this.fb.group({
+      name: ['', Validators.required],
+      medicalArea: ['', Validators.required]
+    });
   }
 
-  // Método para abrir el calendario cuando se selecciona una especialidad médica
-  openCalendar(specialty: string) {
-    this.selectedSpecialty = specialty;
-    this.calendarModalOpen = true;
-  }
+  // Implementación del ciclo de vida OnInit
+  ngOnInit(): void {} // Asegúrate de que tenga el tipo :void
 
-  // Método para cerrar el modal del calendario
-  closeCalendar() {
-    this.calendarModalOpen = false;
+  onSubmit(): void {
+    if (this.appointmentForm.valid) {
+      console.log(this.appointmentForm.value);
+      // Aquí puedes redirigir o mostrar un mensaje de éxito
+      this.navCtrl.back(); // Vuelve a la página anterior
+    }
   }
-
-  // Método para manejar el cambio de fecha en el calendario
-  onDateChange(event: any) {
-    this.selectedDate = event.detail.value;
-  }
-
-  // Método para registrar la cita (puedes extenderlo para guardarlo en una base de datos)
-  registerAppointment() {
-    console.log(`Cita registrada para ${this.selectedSpecialty} en ${this.selectedDate}`);
-    this.closeCalendar();
-  }
-
 }
