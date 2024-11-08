@@ -1,33 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="secondary">
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!-- Encabezado Condensado para el Título Grande -->
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <!-- Sección de Perfil -->
-  <ion-card class="profile-card">
-    <ion-avatar slot="start" class="profile-avatar">
-      <img src="assets/perfil.jpg" alt="Foto de Usuario" />
-    </ion-avatar>
+<ion-content [fullscreen]="true">
+
+  <!-- Imagen de Perfil -->
+  <div class="profile-container" style="text-align: center; margin-top: 20px;">
+    <img *ngIf="user.fotoUrl" [src]="user.fotoUrl" alt="Foto de Perfil" style="border-radius: 50%; width: 120px; height: 120px;">
+    <div *ngIf="!user.fotoUrl" style="border-radius: 50%; width: 120px; height: 120px; background-color: gray; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px;">
+      <span>{{ user.nombre | slice:0:1 }}</span> <!-- First letter of name -->
+    </div>
+  </div>
+
+  <!-- Información del Usuario -->
+  <ion-card>
     <ion-card-header>
       <ion-card-title>{{ user.nombre }}</ion-card-title>
       <ion-card-subtitle>{{ user.descripcion }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
-  <!-- Sección del Menú -->
+  <!-- Citas Registradas -->
   <ion-list>
-    <ion-item button (click)="verCitas()">
-      <ion-icon name="calendar-outline" slot="start"></ion-icon>
-      <ion-label>Ver Citas Médicas</ion-label>
+    <ion-item *ngFor="let cita of citas">
+      <ion-label>
+        <h2>{{ cita.titulo }}</h2>
+        <p>{{ cita.fecha | date }}</p>
+        <p>{{ cita.descripcion }}</p>
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

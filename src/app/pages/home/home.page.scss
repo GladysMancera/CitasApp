@@ -1,49 +1,75 @@
+/* Estilos para la barra de herramientas */
+ion-toolbar {
+  --background: #45553D; /* Color verde oscuro */
+  --color: white; /* Color del texto */
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Título */
+ion-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Botón de perfil con icono */
+.profile-button {
+  --border-radius: 50%;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  position: relative;
+}
+
+/* Icono del botón de perfil */
+.profile-icon {
+  font-size: 1.4rem;
+}
+
+/* Burbuja de notificación */
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+/* Estilo del contenido */
 .home-content {
+  --background: #E8E9E0; /* Fondo gris claro */
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sección de bienvenida */
+.welcome-section {
   text-align: center;
-  padding: 16px;
-  color: #0D120E;
-  background-color: #E8E9E0;
+  margin-bottom: 20px;
 }
 
 .welcome-section h2 {
   font-size: 2rem;
-  margin: 16px 0;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .welcome-section p {
-  font-size: 1.2rem;
-  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
 }
+
+/* Imagen de bienvenida */
 .welcome-image {
-  width: 400px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 400px; /* Mantén la misma altura que el ancho para que sea circular */
+  width: 400px; /* Imagen aún más grande */
+  height: 400px; /* Debe ser igual al ancho para mantener la forma circular */
+  object-fit: cover; /* Asegura que la imagen se ajuste bien dentro del círculo */
   border-radius: 50%; /* Hace que la imagen sea circular */
-  object-fit: cover; /* Asegura que la imagen mantenga su proporción */
-  margin-top: 16px; /* Espaciado superior */
-}
-
-ion-badge {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-size: 0.7rem;
-}
-
-.profile-button {
-  font-size: 1.5rem; /* Tamaño del botón */
-}
-
-.profile-icon {
-  font-size: 2rem; /* Tamaño del ícono de perfil */
-}
-
-.notification-badge {
-  font-size: 0.8rem; /* Tamaño del texto dentro de la burbuja */
-  width: 20px; /* Ancho de la burbuja */
-  height: 20px; /* Altura de la burbuja */
-  line-height: 20px; /* Para centrar el texto verticalmente */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
 }

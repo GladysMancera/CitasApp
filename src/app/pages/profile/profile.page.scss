@@ -1,21 +1,80 @@
-
-.custom-toolbar {
-    --background: #E8E9E0;  /* Cambia este color al que desees */
-    --color: #FFFFFF;       /* Cambia el color del texto si deseas */
-  }
-
-  /* Estilo para el contenedor del avatar */
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  margin-right: 16px;
-  overflow: hidden; /* Asegura que la imagen no se desborde */
-  border-radius: 50%; /* Opcional: hace que la imagen tenga bordes redondeados */
+/* Estilo para la imagen de perfil */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-/* Estilo para la imagen dentro del avatar */
-.profile-avatar img {
+.profile-image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen se recorte y se ajuste bien al contenedor */
+  object-fit: cover;
+}
+
+.profile-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50%;
+}
+
+/* Estilo para las tarjetas de perfil */
+.profile-card {
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-header {
+  padding: 16px;
+}
+
+ion-card-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+ion-card-subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Estilo para la lista de citas */
+.appointments-list {
+  margin-top: 20px;
+}
+
+ion-item {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-label h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+ion-label p {
+  font-size: 1rem;
+}
+
+/* Espaciado y márgenes generales */
+ion-content {
+  padding-top: 10px;
 }

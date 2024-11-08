@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <!-- Cabecera con el título en la parte superior -->
   <ion-header translucent>
-    <ion-toolbar>
+  <ion-toolbar color="secondary">
       <ion-title class="title">Bienvenido</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -47,7 +47,7 @@
 
       <!-- Botón de Registrarse -->
       <div class="ion-padding-top">
-        <ion-button expand="block" color="primary" type="submit">
+        <ion-button expand="block" color="secondary" type="submit">
           Registrarse
         </ion-button>
       </div>
@@ -60,7 +60,7 @@
 
     <!-- Botón flotante para continuar -->
     <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-      <ion-fab-button type="submit" [routerLink]="['/home']">
+      <ion-fab-button type="submit" [routerLink]="['/home']" color="secondary">
         <ion-icon name="chevron-forward"></ion-icon>
       </ion-fab-button>
     </ion-fab>
