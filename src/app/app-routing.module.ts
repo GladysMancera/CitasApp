@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'profile',   // Ruta para el registro
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
   },
+  {
+    path: 'notifications',   // Ruta para el registro
+    loadChildren: () => import('./pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+  },
   
   // Otras rutas pueden ir aquí...
 ];

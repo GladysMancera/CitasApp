@@ -10,10 +10,10 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   public appPages = [
-    { title: 'Inicio', url: '/pages/home', icon: 'home' },
-    { title: 'Perfil', url: '/pages/profile', icon: 'person' },
-    { title: 'Citas', url: '/pages/appoiments', icon: 'calendar' },
-    { title: 'Notificaciones', url: '/pages/notifications', icon: 'notifications' },
+    { title: 'Inicio', url: '/home', icon: 'home' },
+    { title: 'Perfil', url: '/profile', icon: 'person' },
+    { title: 'Citas', url: '/appoiments', icon: 'calendar' },
+    { title: 'Notificaciones', url: '/notifications', icon: 'notifications' },
   ];
   public labels = [];
 
