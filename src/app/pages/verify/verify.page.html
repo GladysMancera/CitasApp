@@ -14,7 +14,7 @@
 
   <div class="ion-padding">
     <!-- Mensaje cuando el correo está verificado -->
-    <h2 *ngIf="userEmailVerified">¡Tu correo ha sido verificado!</h2>
+    <h2 *ngIf="userEmailVerified">¡Tu correo ha sido verificado! Ahora puedes iniciar sesión.</h2>
 
     <!-- Mensaje cuando el correo no está verificado -->
     <h2 *ngIf="!userEmailVerified">Por favor, verifica tu correo electrónico antes de continuar.</h2>
@@ -25,6 +25,11 @@
     <!-- Botón para reenviar el correo de verificación -->
     <ion-button expand="block" (click)="resendVerificationEmail()" *ngIf="!userEmailVerified">
       Reenviar correo de verificación
+    </ion-button>
+
+    <!-- Redirigir al login si el correo ya está verificado -->
+    <ion-button *ngIf="userEmailVerified" expand="block" (click)="redirectToLogin()">
+      Ir al Login
     </ion-button>
   </div>
 </ion-content>

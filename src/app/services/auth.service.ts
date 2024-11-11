@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth'; // Correcto
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -38,16 +38,18 @@ export class AuthService {
           email: email
         });
 
-        // Enviar correo de verificación
-        await user.sendEmailVerification();
+        // Enviar correo de verificación con la URL de redirección al login
+        const actionCodeSettings = {
+          url: 'http://localhost:8101/login',  // Reemplaza con tu URL de login
+          handleCodeInApp: true,  // Permite manejar el código en la app
+        };
+        await user.sendEmailVerification(actionCodeSettings);
         console.log('Correo de verificación enviado');
 
         // Verificar si el correo está verificado o no
         if (user.emailVerified) {
-          // Si ya está verificado, redirige al home
           this.router.navigate(['/home']);
         } else {
-          // Si no está verificado, redirige a la página de verificación
           this.router.navigate(['/verify']);
         }
       } else {
@@ -71,7 +73,6 @@ export class AuthService {
       if (user) {
         // Verificar si el correo está verificado
         if (!user.emailVerified) {
-          // Si no está verificado, redirigir al usuario a la página de verificación
           throw new Error('Por favor, verifica tu correo electrónico antes de iniciar sesión.');
         }
 
@@ -81,7 +82,6 @@ export class AuthService {
     } catch (error: unknown) {
       if (error instanceof Error) {
         if (error.message === 'Por favor, verifica tu correo electrónico antes de iniciar sesión.') {
-          // Si el correo no está verificado, redirigir a la página de verificación
           this.router.navigate(['/verify']);
         } else {
           throw new Error('Error al iniciar sesión. Verifica tus credenciales: ' + error.message);
