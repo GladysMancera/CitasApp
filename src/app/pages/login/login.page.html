@@ -23,6 +23,20 @@
         <ion-input [(ngModel)]="password" name="password" placeholder="Contraseña" type="password" required></ion-input>
       </ion-item>
 
+      <!-- Botón de inicio de sesión -->
+      <div class="ion-padding-top">
+        <ion-button expand="block" type="submit" color="secondary">
+          Iniciar sesión
+        </ion-button>
+      </div>
+
+      <!-- Botón de inicio de sesión con Google -->
+      <div class="ion-padding-top">
+        <ion-button expand="block" color="danger" (click)="loginWithGoogle()">
+          Iniciar sesión con Google
+        </ion-button>
+      </div>
+
       <!-- Pregunta para recuperar la contraseña -->
       <div class="forgotpassword">
         <a [routerLink]="['/resetPassword']" style="color: blue">Recuperar Contraseña</a>
@@ -31,13 +45,6 @@
       <!-- Pregunta para registrarse como nuevo usuario -->
       <div class="signupLink">
         <p>¿Eres nuevo usuario? <a style="color: blue" [routerLink]="['/signup']">Regístrate Gratis</a></p>
-      </div>
-
-      <!-- Botón de inicio de sesión -->
-      <div class="ion-padding-top">
-        <ion-button expand="block" type="submit" color="secondary">
-          Iniciar sesión
-        </ion-button>
       </div>
     </div>
   </form>

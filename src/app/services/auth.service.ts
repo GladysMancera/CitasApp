@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BehaviorSubject } from 'rxjs';
+import firebase from 'firebase/compat/app';  // Importa firebase para trabajar con su autenticación
+import 'firebase/compat/auth';  // Importa autenticación de Firebase
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +27,10 @@ export class AuthService {
     telefono: string
   ) {
     try {
-      // Crear usuario con Firebase Authentication
       const userCredential = await this.afAuth.createUserWithEmailAndPassword(email, password);
       const user = userCredential.user;
 
       if (user) {
-        // Guardar los datos del usuario en Firestore
         await this.firestore.collection('usuarios').doc(user.uid).set({
           nombres: nombres,
           apellidoPaterno: apellidoPaterno,
@@ -38,15 +39,13 @@ export class AuthService {
           email: email
         });
 
-        // Enviar correo de verificación con la URL de redirección al login
         const actionCodeSettings = {
           url: 'http://localhost:8101/login',  // Reemplaza con tu URL de login
-          handleCodeInApp: true,  // Permite manejar el código en la app
+          handleCodeInApp: true,
         };
         await user.sendEmailVerification(actionCodeSettings);
         console.log('Correo de verificación enviado');
 
-        // Verificar si el correo está verificado o no
         if (user.emailVerified) {
           this.router.navigate(['/home']);
         } else {
@@ -71,12 +70,10 @@ export class AuthService {
       const user = userCredential.user;
 
       if (user) {
-        // Verificar si el correo está verificado
         if (!user.emailVerified) {
           throw new Error('Por favor, verifica tu correo electrónico antes de iniciar sesión.');
         }
 
-        // Redirigir al usuario a la página principal
         this.router.navigate(['/home']);
       }
     } catch (error: unknown) {
@@ -106,6 +103,25 @@ export class AuthService {
       console.log('Correo de verificación reenviado');
     } else {
       throw new Error('El correo ya está verificado o no hay un usuario autenticado');
+    }
+  }
+
+  // Método para iniciar sesión con Google
+  async loginWithGoogle() {
+    try {
+      // Usamos el proveedor de Google para la autenticación
+      const provider = new firebase.auth.GoogleAuthProvider();  // Crear el proveedor de Google
+      const result = await this.afAuth.signInWithPopup(provider);  // Usar el popup para el login
+      const user = result.user;
+
+      if (user) {
+        // Aquí puedes almacenar los datos del usuario en Firestore, si es necesario
+        console.log('Usuario autenticado con Google:', user);
+        this.router.navigate(['/home']);  // Redirigir al home después del login exitoso
+      }
+    } catch (error) {
+      console.error('Error durante el login con Google:', error);  // Capturar el error
+      throw error;  // Lanza el error para que sea manejado en la página de login
     }
   }
 }

@@ -20,6 +20,7 @@ const routes: Routes = [
     path: 'signup',   // Ruta para el registro
     loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
   },
+  
   // Otras rutas pueden ir aquí...
 ];
 
