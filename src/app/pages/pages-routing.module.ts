@@ -32,7 +32,11 @@ const routes: Routes = [
   {
     path: 'notifications',
     loadChildren: () => import('../notifications/notifications.module').then(m => m.NotificationsPageModule)
+  },  {
+    path: 'verify',
+    loadChildren: () => import('./verify/verify.module').then( m => m.VerifyPageModule)
   },
+
 ];
 
 @NgModule({

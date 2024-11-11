@@ -1,5 +1,4 @@
 <ion-content [fullscreen]="true">
-  <!-- Cabecera con el título en la parte superior -->
   <ion-header translucent>
     <ion-toolbar color="secondary">
       <ion-title class="title">Bienvenido</ion-title>
@@ -36,7 +35,7 @@
 
         <!-- Campos completos -->
         <ion-item>
-          <ion-input [(ngModel)]="telefono" name="telefono" placeholder="Número de teléfono" class="input" type="tel" required></ion-input>
+          <ion-input [(ngModel)]="telefono" name="telefono" placeholder="Número de teléfono" class="input" type="tel"></ion-input>
           <ion-icon slot="start" name="call-outline"></ion-icon>
         </ion-item>
         <ion-item>
@@ -44,6 +43,9 @@
           <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
         </ion-item>
       </div>
+
+      <!-- Contenedor para el reCAPTCHA -->
+      <div id="recaptcha-container"></div>
 
       <!-- Botón de Registrarse -->
       <div class="ion-padding-top">

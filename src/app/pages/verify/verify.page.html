@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Verificación de Correo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Cabecera Condensada -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Verificación</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <!-- Mensaje cuando el correo está verificado -->
+    <h2 *ngIf="userEmailVerified">¡Tu correo ha sido verificado!</h2>
+
+    <!-- Mensaje cuando el correo no está verificado -->
+    <h2 *ngIf="!userEmailVerified">Por favor, verifica tu correo electrónico antes de continuar.</h2>
+
+    <!-- Instrucciones para revisar el correo -->
+    <p *ngIf="!userEmailVerified">Si no encuentras el correo, revisa tu carpeta de spam o haz clic en el siguiente botón para reenviarlo.</p>
+
+    <!-- Botón para reenviar el correo de verificación -->
+    <ion-button expand="block" (click)="resendVerificationEmail()" *ngIf="!userEmailVerified">
+      Reenviar correo de verificación
+    </ion-button>
+  </div>
+</ion-content>
