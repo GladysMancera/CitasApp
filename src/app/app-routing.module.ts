@@ -20,6 +20,14 @@ const routes: Routes = [
     path: 'signup',   // Ruta para el registro
     loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
   },
+  {
+    path: 'landing',   // Ruta para el registro
+    loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingPageModule)
+  },
+  {
+    path: 'profile',   // Ruta para el registro
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  },
   
   // Otras rutas pueden ir aquí...
 ];
