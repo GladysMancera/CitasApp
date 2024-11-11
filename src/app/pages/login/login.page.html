@@ -1,33 +1,41 @@
 <ion-content [fullscreen]="true">
-   <ion-header translucent>
-   <ion-toolbar color="secondary">
+  <ion-header translucent>
+    <ion-toolbar color="secondary">
       <ion-title class="title">Bienvenido</ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <div class="header">
-    <p class="subTitle">Inicia sesion para ingresar a tu cuenta</p>
+    <p class="subTitle">Inicia sesión para ingresar a tu cuenta</p>
   </div>
-  <form>
+
+  <form (ngSubmit)="login()">
     <div class="ion-padding">
+      <!-- Campo de correo electrónico -->
       <ion-item>
-        <ion-input placeholder="Nombre de usuario" class="input"></ion-input>
-        <ion-icon name="person-outline"></ion-icon>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input [(ngModel)]="email" name="email" placeholder="Correo electrónico" type="email" required></ion-input>
       </ion-item>
+
+      <!-- Campo de contraseña -->
       <ion-item>
-        <ion-input placeholder="Contraseña" class="input" type="password"></ion-input>
-        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input [(ngModel)]="password" name="password" placeholder="Contraseña" type="password" required></ion-input>
       </ion-item>
+
+      <!-- Pregunta para recuperar la contraseña -->
       <div class="forgotpassword">
         <a [routerLink]="['/resetPassword']" style="color: blue">Recuperar Contraseña</a>
       </div>
+
+      <!-- Pregunta para registrarse como nuevo usuario -->
       <div class="signupLink">
-        <p>¿Eres nuevo usuario? <a style="color: blue" [routerLink]="['/signup']">Registrate Gratis</a></p>
+        <p>¿Eres nuevo usuario? <a style="color: blue" [routerLink]="['/signup']">Regístrate Gratis</a></p>
       </div>
 
       <!-- Botón de inicio de sesión -->
       <div class="ion-padding-top">
-        <ion-button expand="block" [routerLink]="['/home']" color="secondary" type="submit">
+        <ion-button expand="block" type="submit" color="secondary">
           Iniciar sesión
         </ion-button>
       </div>

@@ -1,20 +1,26 @@
+// src/app/app.module.ts
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
-import { PagesPageRoutingModule } from './pages-routing.module';
-
-import { PagesPage } from './pages.page';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AngularFireModule } from '@angular/fire/compat';  // Importación de AngularFireModule
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';  // Módulo de autenticación
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';  // Módulo de Firestore
+import { environment } from 'src/environments/environment';  // Configuración de Firebase
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
+  declarations: [AppComponent],
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PagesPageRoutingModule
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),  // Inicializa Firebase
+    AngularFireAuthModule,  // Módulo de autenticación de Firebase
+    AngularFirestoreModule,  // Módulo de Firestore de Firebase
   ],
-  declarations: [PagesPage]
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  bootstrap: [AppComponent],
 })
-export class PagesPageModule {}
+export class AppModule {}

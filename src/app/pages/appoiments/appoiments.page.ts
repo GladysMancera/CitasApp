@@ -1,34 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { CitaService } from 'src/app/services/cita.service';  // Asegúrate de ajustar la ruta correcta
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-appoiments',
-  templateUrl: './appoiments.page.html',
-  styleUrls: ['./appoiments.page.scss'],
+  selector: 'app-appointments',
+  templateUrl: './appointments.page.html',
+  styleUrls: ['./appointments.page.scss'],
 })
-export class AppoimentsPage {
+export class CitaPage implements OnInit {
   appointmentForm: FormGroup;
-  medicalAreas: string[] = [
-    'Cardiología',
-    'Dermatología',
-    'Neurología',
-    'Pediatría',
-    'Ginecología'
-  ];
+  medicalAreas: string[] = ['Cardiología', 'Dermatología', 'Pediatría', 'Ginecología'];
 
-  constructor(private fb: FormBuilder, private navCtrl: NavController) {
-    this.appointmentForm = this.fb.group({
-      name: ['', Validators.required],
-      medicalArea: ['', Validators.required],
-      appointmentDateTime: ['', Validators.required] // Campo para la fecha y hora
+  constructor(
+    private formBuilder: FormBuilder,
+    private citaService: CitaService, // Inyectamos el servicio para gestionar las citas
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.appointmentForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      medicalArea: ['', [Validators.required]],
+      appointmentDateTime: ['', [Validators.required]],
     });
   }
 
-  onSubmit(): void {
+  // Método para enviar los datos del formulario
+  onSubmit() {
     if (this.appointmentForm.valid) {
-      console.log(this.appointmentForm.value);
-      this.navCtrl.back(); // Vuelve a la página anterior
+      this.citaService.addCita(this.appointmentForm.value).then(() => {
+        // Lógica después de agendar la cita (redirigir o mostrar mensaje)
+        console.log('Cita agendada exitosamente');
+        this.router.navigate(['/home']);  // O redirige a otra página después de agendar la cita
+      }).catch(error => {
+        console.error('Error al agendar la cita:', error);
+      });
     }
   }
 }

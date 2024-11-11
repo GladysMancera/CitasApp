@@ -1,49 +1,31 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'home',    // Ruta predeterminada a la home
     pathMatch: 'full'
   },
- 
   {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then( m => m.PagesPageModule)
-  },
-  {
-    path: 'models',
-    loadChildren: () => import('./models/models.module').then( m => m.ModelsPageModule)
-  },
-  {
-    path: 'services',
-    loadChildren: () => import('./services/services.module').then( m => m.ServicesPageModule)
-  },
-  {
-    path: 'signup',
-    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
-  },
-
-  {
-    path: 'login',
+    path: 'login',    // Ruta para el login
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
-
   {
-    path: 'home',
+    path: 'home',     // Ruta para la página principal
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'landing',
-    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
-  }
-
+    path: 'signup',   // Ruta para el registro
+    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
+  },
+  // Otras rutas pueden ir aquí...
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })  // Usar pre-carga de módulos
   ],
   exports: [RouterModule]
 })
