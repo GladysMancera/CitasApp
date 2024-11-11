@@ -1,19 +1,18 @@
+// src/app/pages/appointments/appointments.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
-import { AppoimentsPageRoutingModule } from './appoiments-routing.module';
-import { AppoimentsPage } from './appoiments.page';
+import { AppointmentsPage } from './appointments.page';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     IonicModule,
-    AppoimentsPageRoutingModule
+    RouterModule.forChild([
+      { path: '', component: AppointmentsPage }
+    ])
   ],
-  declarations: [AppoimentsPage]
+  declarations: [AppointmentsPage]
 })
-export class AppoimentsPageModule {}
+export class AppointmentsPageModule {}

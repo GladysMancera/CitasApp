@@ -1,5 +1,5 @@
 <ion-header>
-<ion-toolbar color="secondary">
+  <ion-toolbar color="secondary">
     <ion-title>Agendar Cita</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,7 @@
     <!-- Campo de Nombre -->
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input formControlName="name" type="text" required></ion-input>
+      <ion-input formControlName="name" type="text" required [value]="nombre"></ion-input>
     </ion-item>
 
     <!-- Desplegable de Áreas Médicas -->
@@ -25,11 +25,12 @@
     <!-- Selector de Fecha y Hora -->
     <ion-item>
       <ion-label>Fecha y Hora</ion-label>
-      <ion-datetime formControlName="appointmentDateTime" display-format="DD/MM/YYYY HH:mm" placeholder="Selecciona fecha y hora"></ion-datetime>
+      <ion-datetime formControlName="appointmentDateTime" display-format="DD/MM/YYYY HH:mm" placeholder="Selecciona fecha y hora" [value]="fechayhora
+"></ion-datetime>
     </ion-item>
 
     <!-- Botón de Enviar -->
-    <ion-button expand="full" type="submit" [disabled]="!appointmentForm.valid" color ="secondary">
+    <ion-button expand="full" type="submit" [disabled]="!appointmentForm.valid" color="secondary">
       Agendar
     </ion-button>
   </form>

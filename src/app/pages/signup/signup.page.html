@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <!-- Cabecera con el título en la parte superior -->
   <ion-header translucent>
-  <ion-toolbar color="secondary">
+    <ion-toolbar color="secondary">
       <ion-title class="title">Bienvenido</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -10,37 +10,37 @@
     <p class="subTitle">Regístrate para tener una cuenta</p>
   </div>
 
-  <form>
+  <form (ngSubmit)="register()">
     <div class="ion-padding">
       <!-- Contenedor de dos columnas -->
       <div class="form-grid">
         <!-- Primera columna -->
         <ion-item>
-          <ion-input placeholder="Nombres" class="input"></ion-input>
+          <ion-input [(ngModel)]="nombres" name="nombres" placeholder="Nombres" class="input" required></ion-input>
           <ion-icon slot="start" name="person-outline"></ion-icon>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Apellido Paterno" class="input"></ion-input>
+          <ion-input [(ngModel)]="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno" class="input" required></ion-input>
           <ion-icon slot="start" name="person-outline"></ion-icon>
         </ion-item>
 
         <!-- Segunda columna -->
         <ion-item>
-          <ion-input placeholder="Apellido Materno" class="input"></ion-input>
+          <ion-input [(ngModel)]="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido Materno" class="input" required></ion-input>
           <ion-icon slot="start" name="person-outline"></ion-icon>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Correo Electrónico" class="input"></ion-input>
+          <ion-input [(ngModel)]="email" name="email" placeholder="Correo Electrónico" class="input" type="email" required></ion-input>
           <ion-icon slot="start" name="mail-outline"></ion-icon>
         </ion-item>
 
         <!-- Campos completos -->
         <ion-item>
-          <ion-input placeholder="Número de teléfono" class="input"></ion-input>
+          <ion-input [(ngModel)]="telefono" name="telefono" placeholder="Número de teléfono" class="input" type="tel" required></ion-input>
           <ion-icon slot="start" name="call-outline"></ion-icon>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Contraseña" type="password" class="input"></ion-input>
+          <ion-input [(ngModel)]="password" name="password" placeholder="Contraseña" class="input" type="password" required></ion-input>
           <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
         </ion-item>
       </div>
@@ -57,12 +57,5 @@
         <p>¿Ya tienes una cuenta? <a style="color: blue;" [routerLink]="['/login']">Inicia Sesión</a></p>
       </div>
     </div>
-
-    <!-- Botón flotante para continuar -->
-    <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px;">
-      <ion-fab-button type="submit" [routerLink]="['/home']" color="secondary">
-        <ion-icon name="chevron-forward"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </form>
 </ion-content>
